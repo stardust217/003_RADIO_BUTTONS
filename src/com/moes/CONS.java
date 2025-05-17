@@ -6,13 +6,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CONS extends JFrame implements ActionListener {
+
+    // DECLARING CLASSES
     JRadioButton radio;
     JRadioButton radio2;
     JRadioButton radio3;
     JButton button;
     ButtonGroup group;
+    JLabel label;
 
     CONS(){
+        // LABEL THE CONTAINS THE QUESTION
+        label =new JLabel("HI HOW ARE FEELING TODAY");
+        label.setBounds(15,10, 200,30);
+
+        // RADIOBUTTONS EACH CONTAINING THEIR OWN OPTION
         radio = new JRadioButton("IM GREAT");
         radio.setBounds(0,40, 200,30);
         radio.addActionListener(this);
@@ -26,28 +34,35 @@ public class CONS extends JFrame implements ActionListener {
         radio3.addActionListener(this);
         radio3.setFocusable(false);
 
-
+// GROUP THAT MERGES ALL THREE RADIOBUTTONS
         group = new ButtonGroup();
         group.add(radio);
         group.add(radio2);
         group.add(radio3);
 
+        // BUTTON WITH ETCHED BORDER AND FOCUSABLE FALSE
         button =new JButton("Submit");
         button.setBounds(35,115, 100,30);
         button.setBorder(BorderFactory.createEtchedBorder());
         button.setFocusable(false);
         button.addActionListener(this);
 
+        // ADDING ALL THE ABOVE COMPONENT TO FRAME CALLED THIS SINCE THE CLASS CONS.java EXTENDS JFRAME
+        this.add(label);
         this.add(button);
         this.add(radio);
         this.add(radio2);
         this.add(radio3);
+
+        // SETTING UP THE FRAME
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(240,240);
         this.setLayout(null);
         this.setVisible(true);
 
     }
+
+    // ALL THE NECESSARY FUNCTIONS OF THE BUTTONS , RADIO BUTTONS USING ACTION-LISTENER
    @Override
    public void actionPerformed(ActionEvent e) {
        if(e.getSource()==radio) {
